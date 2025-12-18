@@ -1,0 +1,54 @@
+!DOCTYPE html>
+<html>
+<body>
+
+<h2>Form validation Example</h2>
+<form onsubmit="return validateForm()">
+    <label>Email:</label>
+    <input type="text" id="eamil" onkeyup="validateEmail()"> 
+    <span i="emailError" style="color:red"></span><br><br>
+
+    <label>Password (min 6 chars):</label>
+    <input type="password" id="password" onkeyup="validatepassword()">
+    <span id="passwordError" style="color:red"></span><bar></bar>
+
+    <button type="sumbit">sumbit</button>
+</form>
+
+<script>
+function validateEmail() {
+    let email = document.getElementById("email").value;
+    let errorSpan = document.getElementById("emailError");
+    if (!email.includes("@")) {
+        errorSpan.innerText = "Invalid email!";
+        return false;
+    } else {
+        errorSpan.innerText = "";
+        return true;
+    }
+}
+ document.getElementById("password").value;
+    let errorSpan = document.getElementById("passwordError");
+    if (pwd.length < 6) {
+        errorSpan.innerText = "Password too short!";
+        return false;
+    } else {
+        errorSpan.innerText ="";
+        return true;
+    }
+}
+
+function validateForm() {
+    let isEmailvalid = validateEmail();
+    let isPasswordValid = validatePassword();
+    if (isEmailValid && isPasswordValid) {
+        alert("Form sumbitted succesfully!");
+        return true;
+} else {
+    alert("Please fix errors before submitting.");
+    return false;
+  }
+}
+</script>
+</body>
+</html>
